@@ -3,7 +3,7 @@ package com.example.loginapp.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users")  // MySQL 예약어 'user' 피해서 'users'로
+@Table(name = "users")  // 예약어 문제 때문에 'user' 대신 'users'
 public class User {
 
     @Id
@@ -16,19 +16,38 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    // 기본 생성자
     public User() {}
 
-    // Getters & Setters
+    // 생성자 (선택)
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 
-    public Long getId() { return id; }
+    // getter, setter
 
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getEmail() { return email; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public void setEmail(String email) { this.email = email; }
+    public String getEmail() {
+        return email;
+    }
 
-    public String getPassword() { return password; }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-    public void setPassword(String password) { this.password = password; }
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

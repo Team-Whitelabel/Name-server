@@ -21,7 +21,6 @@ public class UserService {
 
     public Optional<User> login(String email, String password) {
         Optional<User> user = userRepository.findByEmail(email);
-
         if (user.isPresent() && user.get().getPassword().equals(password)) {
             return user;
         }
